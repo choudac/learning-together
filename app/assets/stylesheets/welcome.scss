@@ -1,3 +1,72 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.landing-page {
+  margin-bottom: 60px;
+  background-color: white;
+
+  .jumbotron {
+ background-image:url('https://ws4.sinaimg.cn/large/006tKfTcgy1fjy7qv1sqcj31kw11xkjn.jpg');
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;
+ padding-bottom: 110px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 80px;
+  color: black;
+}
+
+
+  .slogan {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: black;
+  top: 12px;
+}
+
+.lead {
+  margin-bottom: 60px;
+  text-align: center;
+  color: white;
+}
+
+  .section-features {
+    .image-container img {
+      width: 100%;
+    }
+  }
+
+  .section h2 {
+    margin-top: 100px;
+    font-family: "Helvetica Neue";
+  }
+
+  .section-bottom {
+    width: 100%;
+    background-image: url("https://ws4.sinaimg.cn/large/006tNc79gy1fjz4d47cwgj30xc06y0tk.jpg");
+    border-radius: 0 0 6px 6px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .title {
+      color: black;
+      text-shadow: 0 4px 10px #b3d9ff;
+      margin-bottom: 60;
+    }
+
+    .description {
+      color: #a2a2a2;
+      margin-bottom: 20px;
+    }
+  }
+
+}

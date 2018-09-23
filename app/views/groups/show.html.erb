@@ -1,12 +1,14 @@
-<div class="col-md-12">
-  <div class="group">
-    <%= link_to("Write a Post", new_group_post_path(@group), class: "btn btn-default pull-right")%>
+<div class="col-md-8 col-md-offset-2">
+
+  <div class="jumbotron">
+    <h2><%= @group.title %></h2>
+    <br><br>
+    <p ><%= @group.description %></p>
     <% if current_user && current_user == @group.user %>
-      <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right")%>
+      <%= link_to("修改讨论组", edit_group_path(@group), class: "btn btn-primary")%>
     <% end %>
   </div>
-  <h2><%= @group.title %></h2>
-  <p><%= @group.description %></p>
+
   <table class="table">
     <thead>
      <tr>
@@ -18,17 +20,28 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <td><%= link_to(post.content, group_post_path(@group)) %></td>
-          <td><%= post.user.email %></td>
+          <td><%= link_to(post.title, group_post_path(@group)) %></td>
+          <td><%= post.content %></td>
           <td><%= post.created_at %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <% if @group.image.present? %>
-    <%= image_tag(@group.image.medium.url, class: "thumbnail") %>
-  <% else %>
-    <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+
+  <%= simple_form_for @group do |f| %>
+    <div class="form-group">
+      <%= f.input :title, input_html: { class: "form-control"} %>
+      <%= f.input :description, input_html: { class: "form-control"} %>
+    </div>
+    <div class="group">
+      <%= f.input :image, as: :file %>
+    </div>
+
+    <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
   <% end %>
+  
+  <div class="group">
+    <%= link_to("发表讨论", new_group_post_path(@group), class: "btn btn-default")%>
+  </div>
 </div>

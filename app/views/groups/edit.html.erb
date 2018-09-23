@@ -1,5 +1,5 @@
 <div class="col-md-4 col-md-offset-4">
-    <h2>编辑讨论版</h2>
+    <h2>修改讨论组</h2>
 
     <hr>
     <%= simple_form_for @group do |f| %>
@@ -9,7 +9,7 @@
       </div>
 
       <% if @group.image.present? %>
-        <span>目前商品图</span> <br>
+        <span>当前图片</span> <br>
         <%= image_tag(@group.image.thumb.url) %>
       <% end %>
 
@@ -17,7 +17,7 @@
         <%= f.input :image, as: :file %>
       </div>
 
-      <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
+      <%= f.submit "确定修改", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
     <% end %>
 
 </div>

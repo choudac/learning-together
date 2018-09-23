@@ -1,40 +1,37 @@
 <div class="col-md-12">
+  <img src="https://ws3.sinaimg.cn/large/006tNc79gy1fjz60hqkzuj31780fqqkl.jpg" width = "100%" >
+  <br><br>
   <div class="group">
-    <%= link_to("New group", new_group_path, class: "btn btn-primary pull-right") %>
+    <%= link_to("发起讨论组", new_group_path, class: "btn btn-primary pull-right") %>
   </div>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <td>#</td>
-        <td>Title</td>
-        <td>Description</td>
-        <td>Creator </td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @groups.each do |group| %>
-        <tr>
-          <td>#</td>
-          <td><%= link_to(group.title, group_path(group)) %></td>
-          <td><%= group.description %></td>
-          <td> <%= group.user.email %> </td>
-          <td>
-              <% if current_user && current_user == group.user %>
-                <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%>
-                <%= link_to("Delete", group_path(group),    class: "btn btn-sm btn-default",
-                            method: :delete, data: { confirm: "Are you sure?" } )%>
+</div>
+<br><br>
 
-                <%= link_to group_path(group) do %>
-                    <% if group.image.present? %>
-                      <%= image_tag(group.image.thumb.url, class: "thumbnail") %>
-                    <% else %>
-                        <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-                    <% end %>
-                <% end %>
-              <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="row col-md-10 col-md-offset-1">
+  <% @groups.each do |group| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+
+        <%= link_to group_path(group) do %>
+            <% if group.image.present? %>
+              <%= image_tag(group.image.thumb.url, class: "thumbnail") %>
+            <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+            <% end %>
+        <% end %>
+
+
+      <div class="caption">
+        <h2><%= link_to(group.title, group_path(group)) %></h2>
+
+          <% if current_user && current_user == group.user %>
+            <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%>
+            <%= link_to("Delete", group_path(group),    class: "btn btn-sm btn-default",
+                        method: :delete, data: { confirm: "Are you sure?" } )%>
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+    <% end %>
 </div>
