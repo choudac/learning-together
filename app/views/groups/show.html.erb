@@ -9,24 +9,18 @@
     <% end %>
   </div>
 
-
-    <div class="col-md-10">
+  <div class="col-md-10">
       <%= link_to("发表讨论", new_group_post_path(@group), class: "btn btn-default")%>
-    <% @posts.each do |post| %>
-      <hr>
-      <div>
-        <p><%= post.user.email %></p>
-        <p class="text-right"><%= post.created_at %></p>
-      </div>
+      <% @posts.each do |post| %>
+          <hr>
 
+          <div>
+            <p><%= post.user.email %></p>
+            <p class="text-right"><%= post.created_at %></p>
+          </div>
 
-      <%= post.content %>
-
-    <% end %>
-  </div>
-
-  <div>
-
+          <%= post.content %>
+      <% end %>
   </div>
 
 </div>

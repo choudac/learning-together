@@ -3,21 +3,21 @@
 
     <hr>
     <%= simple_form_for @group do |f| %>
-      <div class="form-group">
-        <%= f.input :title, input_html: { class: "form-control"} %>
-        <%= f.input :description, input_html: { class: "form-control"} %>
-      </div>
+        <div class="form-group">
+          <%= f.input :title, input_html: { class: "form-control"} %>
+          <%= f.input :description, input_html: { class: "form-control"} %>
+        </div>
 
-      <% if @group.image.present? %>
-        <span>当前图片</span> <br>
-        <%= image_tag(@group.image.thumb.url) %>
-      <% end %>
+        <% if @group.image.present? %>
+          <span>当前图片</span> <br>
+          <%= image_tag(@group.image.thumb.url) %>
+        <% end %>
 
-      <div class="group">
-        <%= f.input :image, as: :file %>
-      </div>
+        <div class="group">
+          <%= f.input :image, as: :file %>
+        </div>
 
-      <%= f.submit "确定修改", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
+        <%= f.submit "确定修改", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
     <% end %>
 
 </div>
