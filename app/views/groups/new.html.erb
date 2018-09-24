@@ -1,5 +1,5 @@
 <div class="col-md-4 col-md-offset-4">
-    <h2>新增讨论版</h2>
+    <h2>发表讨论组</h2>
 
     <hr>
     <%= simple_form_for @group do |f| %>
@@ -11,7 +11,7 @@
         <%= f.input :image, as: :file %>
       </div>
 
-      <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
+      <%= f.submit "发表", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
     <% end %>
 
 </div>

@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @posts = @group.posts
+    @posts = @group.posts.recent
   end
 
   def edit
@@ -54,7 +54,7 @@ class GroupsController < ApplicationController
    end
 
    def group_params
-     params.require(:group).permit(:title, :description, :price, :image)
+     params.require(:group).permit(:title, :description, :price, :image, :discuss)
    end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180922144908) do
+ActiveRecord::Schema.define(version: 20180923184336) do
 
   create_table "groups", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180922144908) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "image"
+    t.text "discuss"
   end
 
   create_table "posts", force: :cascade do |t|
